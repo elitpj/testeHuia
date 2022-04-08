@@ -1,64 +1,204 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+<h1>Teste Backend para empresa Huia</h1>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+<h2>Rotas API</h2>
 
-## About Laravel
+<h3>Registro</h3>
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+<h4>POST /api/register</h4>
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+<h5>Parametros:</h5>
+<p>name - obrigatório</p>
+<p>email - obrigatório</p>
+<p>password - obrigatório - mínimo 8 caracteres</p>
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+<p>ex: /api/register?name=Teste&email=teste@teste.com&password=12345678</p>
 
-## Learning Laravel
+<h3>Login</h3>
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+<h4>POST /api/login</h4>
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+<h5>Parametros:</h5>
+<p>email - obrigatório</p>
+<p>password - obrigatório</p>
 
-## Laravel Sponsors
+<p>ex: /api/login?email=teste@teste.com&password=12345678</p>
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+<h2>CLIENTE</h2>
 
-### Premium Partners
+<h3>Salvar</h3>
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+<h4>POST /api/cliente</h4>
+<h5>Parametros:</h5>
+<p>nome - obrigatório</p>
+<p>cpf - obrigatório</p>
+<p>data_nascimento - obrigatório</p>
 
-## Contributing
+<p>ex: /api/cliente?nome=Teste&cpf=123456780&data_nascimento=1990-01-01</p>
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+<h3>Consultar com ID</h3>
 
-## Code of Conduct
+<h4>GET /api/cliente</h4>
+<h5>Parametros:</h5>
+<p>cliente_id - obrigatório</p>
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+<p>ex: /api/cliente?cliente_id=1</p>
 
-## Security Vulnerabilities
+<h3>Consultar todos</h3>
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+<h4>GET /api/clientes</h4>
 
-## License
+<p>ex: /api/clientes</p>
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+<h3>Atualizar</h3>
+
+<h4>PATCH /api/cliente</h4>
+<h5>Parametros:</h5>
+<p>nome - obrigatório</p>
+<p>cpf - obrigatório</p>
+<p>data_nascimento - obrigatório</p>
+<p>cliente_id - obrigatório</p>
+
+<p>ex: /api/cliente?nome=Teste&cpf=123456780&data_nascimento=1990-01-01&cliente_id=1</p>
+
+<h3>Deletar</h3>
+
+<h4>DELETE /api/cliente</h4>
+<h5>Parametros:</h5>
+<p>cliente_id - obrigatório</p>
+
+<p>ex: /api/cliente?cliente_id=1</p>
+
+<h2>LOTE</h2>
+
+<h3>Salvar</h3>
+
+<h4>POST /api/lote</h4>
+<h5>Parametros:</h5>
+<p>data_fabricacao - obrigatório</p>
+<p>quantidade - obrigatório - mínimo 0</p>
+<p>qualidade - obrigatório - mínimo 0 máximo 10</p>
+
+<p>ex: /api/lote?data_fabricacao=2020-01-01&quantidade=10&qualidade=9</p>
+
+<h3>Consultar com ID</h3>
+
+<h4>GET /api/lote</h4>
+<h5>Parametros:</h5>
+<p>lote_id - obrigatório</p>
+
+<p>ex: /api/lote?lote_id=1</p>
+
+<h3>Consultar todos</h3>
+
+<h4>GET /api/lotes</h4>
+
+<p>ex: /api/lotes</p>
+
+<h3>Atualizar</h3>
+
+<h4>PATCH /api/lote</h4>
+<h5>Parametros:</h5>
+<p>data_fabricacao - obrigatório</p>
+<p>quantidade - obrigatório - mínimo 0</p>
+<p>qualidade - obrigatório - mínimo 0 máximo 10</p>
+<p>lote_id - obrigatório</p>
+
+<p>ex: /api/lote?data_fabricacao=2000-01-01&quantidade=50&qualidade=3&lote_id=1</p>
+
+<h3>Deletar</h3>
+
+<h4>DELETE /api/lote</h4>
+<h5>Parametros:</h5>
+<p>lote_id - obrigatório</p>
+
+<p>ex: /api/lote?lote_id=1</p>
+
+<h2>PRODUTO</h2>
+
+<h3>Salvar</h3>
+
+<h4>POST /api/produto</h4>
+<h5>Parametros:</h5>
+<p>nome - obrigatório</p>
+<p>lote_id - obrigatório</p>
+<p>cor - obrigatório</p>
+<p>descricao - obrigatório</p>
+<p>valor - obrigatório</p>
+
+<p>ex: /api/produto?nome=Produto 2&lote_id=1&cor=Preto&descricao=Produto 2 desc&valor=20</p>
+
+<h3>Consultar com ID</h3>
+
+<h4>GET /api/produto</h4>
+<h5>Parametros:</h5>
+<p>produto_id - obrigatório</p>
+
+<p>ex: /api/produto?produto_id=1</p>
+
+<h3>Consultar todos</h3>
+
+<h4>GET /api/produtos</h4>
+
+<p>ex: /api/produtos</p>
+
+<h3>Atualizar</h3>
+
+<h4>PATCH /api/produto</h4>
+<h5>Parametros:</h5>
+<p>nome - obrigatório</p>
+<p>cor - obrigatório</p>
+<p>descricao - obrigatório</p>
+<p>valor - obrigatório</p>
+<p>produto_id - obrigatório</p>
+
+<p>ex: /api/produto?nome=Produto 2&cor=Roxo&descricao=Produto 2 description&valor=90&produto_id=4</p>
+
+<h3>Deletar</h3>
+
+<h4>DELETE /api/produto</h4>
+<h5>Parametros:</h5>
+<p>produto_id - obrigatório</p>
+
+<p>ex: /api/produto?produto_id=4</p>
+
+<h2>PEDIDO</h2>
+
+<h3>Salvar</h3>
+
+<h4>POST /api/pedido</h4>
+<h5>Parametros:</h5>
+<p>client_id - obrigatório</p>
+<p>produtos - obrigatório</p>
+
+<p>ex: /api/pedido?client_id=1&produtos={"1":{"id": 1,"name": "Chocolate","quantidade": 2},"2":{"id": 3,"name": "Chocolate","quantidade": 2}}</p>
+
+<h3>Consultar com ID</h3>
+
+<h4>GET /api/pedido</h4>
+<h5>Parametros:</h5>
+<p>pedido_id - obrigatório</p>
+
+<p>ex: /api/pedido?pedido_id=1</p>
+
+<h3>Consultar todos</h3>
+
+<h4>GET /api/pedidos</h4>
+
+<p>ex: /api/pedidos</p>
+
+<h3>Atualizar</h3>
+
+<h4>PATCH /api/pedido</h4>
+<h5>Parametros:</h5>
+<p>produtos - obrigatório</p>
+<p>pedido_id - obrigatório</p>
+
+<p>ex: /api/pedido?pedido_id=2&produtos={"1":{"id": 1,"name": "Chocolate","quantidade": 20},"2":{"id": 3,"name": "Chocolate","quantidade": 2}}</p>
+
+<h3>Deletar</h3>
+
+<h4>DELETE /api/pedido</h4>
+<h5>Parametros:</h5>
+<p>pedido_id - obrigatório</p>
+
+<p>ex: /api/pedido?pedido_id=1</p>
